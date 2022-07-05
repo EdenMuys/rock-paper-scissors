@@ -1,3 +1,7 @@
+let playerScore = 0;
+let compScore = 0;
+
+
 function computerPlay() { // declare computer choice function
   const comp = Math.floor(Math.random() * 3) + 1;
   if (comp === 1) {
@@ -5,30 +9,25 @@ function computerPlay() { // declare computer choice function
   } else if (comp === 2) {
     return "paper";
   } else {
-    return "scissors"
+    return "scissors";
   }
 }
 
-const playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
-const computerSelection = computerPlay();
-
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return "Draw! Play again.";
-  } else if (playerSelection === "rock" && computerSelection === "paper") {
-    return "You lose! Paper beats Rock.";
-  } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    return "You lose! Scissors beats Paper.";
-  } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    return "You lose! Rock beats Scissors.";
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return "You win the round!";
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return "You win the round!";
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    return "You win the round!";
+    console.log("Draw! Play again.");
+  } else if ((playerSelection === "rock" && computerSelection === "paper") ||
+            (playerSelection === "paper" && computerSelection === "scissors") ||
+            (playerSelection === "scissors" && computerSelection === "rock")) {
+    console.log("You lose the round!");
+    compScore++;
+  } else if ((playerSelection === "rock" && computerSelection === "scissors") ||
+            (playerSelection === "paper" && computerSelection === "rock") ||
+            (playerSelection === "scissors" && computerSelection === "paper")) {
+    console.log("You win the round!");
+    playerScore++;
   } else {
-    alert("Invalid selection, try again.");
+    console.log("Invalid selection.");
   }
 }
 
