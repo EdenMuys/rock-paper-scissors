@@ -31,4 +31,19 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+  for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
+    const computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection);
+ }
+ if (playerScore > compScore) {
+  console.log("You win the game!");
+ } else if (playerScore < compScore) {
+  console.log("You lose the game!");
+ } else if (playerScore === compScore) {
+  console.log("Draw! Play again?");
+ }
+}
+
+game();
